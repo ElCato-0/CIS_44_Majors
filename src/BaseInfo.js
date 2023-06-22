@@ -64,7 +64,7 @@ export default function BaseInfo(props) {
                 </div>
 
                 <h2>
-                    المقررات
+                    المقررات (بمساعدة ChatGPT)
                 </h2>
             </article>
             <div className="overflow-x-auto">
