@@ -40,7 +40,7 @@ export default function BaseInfo(props) {
 
     return (
         <>
-            <article className='prose'>
+            <article className='prose prose-sm mx-2'>
                 <h1>{header}</h1>
                 <hr />
                 <h2>الخطة</h2>
@@ -64,16 +64,19 @@ export default function BaseInfo(props) {
                 </div>
 
                 <h2>
-                    المقررات (بمساعدة ChatGPT)
+                    المقررات (بمساعدة ChatGPT => غير دقيق)
                 </h2>
+                <p>
+                    يرجى ملاحظة أن هذه البيانات مستمدة من المعلومات العامة وقد تختلف تفاصيلها حسب المؤسسة التعليمية أو البرنامج التعليمي المحدد. قد تحتاج إلى مزيد من البحث لمعرفة المزيد عن المحتوى والمتطلبات الدقيقة لكل مقرر.
+                </p>
             </article>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table sm:text-sm md:text-base lg:text-lg xl:text-xl">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th className="text-right text-xl">المقرر</th>
-                            <th className="text-right text-xl">
+                        <tr className='sm:text-sm md:text-base lg:text-lg xl:text-xl'>
+                            <th className="text-right">المقرر</th>
+                            <th className="text-right">
                                 الوصف&nbsp;
                                 <strong className='text-error'>
                                     التقريبي
@@ -85,7 +88,7 @@ export default function BaseInfo(props) {
                         {/* loop for each row in props.data and display a tr */}
                         {props.data.map((row, index) => {
                             return (
-                                <tr key={index} className='text-xl'>
+                                <tr key={index} className=''>
                                     {/* loop for each column in the row and display a td */}
                                     {row.map((column, index) => {
                                         return (

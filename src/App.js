@@ -44,20 +44,21 @@ function App(props) {
             '/hci': 'تفاعل المستخدم مع الحاسب',
         }
         document.title = `تخصصات الحاسب د44 | ${routesNames[location.pathname]}`; // Set the page title based on the current route
+
+        // Scroll to top on route change
+        window.scrollTo(0, 0);
+
     }, [location]);
 
     return (
         <div className='arabic-font bg-black min-h-screen'>
             <Navbar />
-            <br className='xl:hidden' />
-            <br />
             <br />
             <div className='container mx-auto' dir='rtl'>
                 {props.children}
             </div>
             <br />
             <br />
-            <br className='xl:hidden' />
         </div>
     );
 }
