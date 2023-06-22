@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function sendGptRequest(messages) {
     const { data } = await axios.post('https://api.pawan.krd/v1/chat/completions', {
-        "model": "gpt-4",
+        "model": "gpt-3.5-turbo",
         "max_tokens": 512,
         "messages": messages,
     }, {
@@ -33,6 +33,8 @@ export default function Chat(props) {
 
     async function sendUserInput(e) {
 
+        setUserInput('');
+
         if (userInput.trim() === '') {
             setStatus('error');
             return;
@@ -51,8 +53,6 @@ export default function Chat(props) {
             return;
         }
 
-        setUserInput('');
-
         messages.current.push({
             "role": "user",
             "content": userInput
@@ -60,12 +60,21 @@ export default function Chat(props) {
 
         const gptResponse = await sendGptRequest(messages.current);
 
-        if (gptResponse.choices[0].message.content === '') {
+        try {
+            if (gptResponse.choices[0].message.content === '') {
+                setStatus('error');
+                // pop the last message
+                messages.current.pop();
+                return;
+            }
+        }
+        catch (e) {
             setStatus('error');
             // pop the last message
             messages.current.pop();
             return;
         }
+
 
         messages.current.push({
             "role": "assistant",
@@ -97,7 +106,7 @@ export default function Chat(props) {
             {/* For each message in chatMessages */}
             {chatMessages.map((message, index) => {
                 return (
-                    <div key={index} className={"chat " + (index % 2 == 0 ? "chat-start" : "chat-end")}>
+                    <div key={index} className={"chat " + (index % 2 === 0 ? "chat-start" : "chat-end")}>
                         <div className="chat-bubble">
                             <div dir="rtl">
                                 {message}
@@ -108,17 +117,17 @@ export default function Chat(props) {
             })}
             <div className="chat chat-start">
                 <div className="join">
-                    <input disabled={status == "loading"} id="userInput" className="input input-bordered join-item min-w-[45vw] input-sm lg:input-md" dir="rtl" placeholder={ status || 'اكتب هنا'}
+                    <input disabled={status === "loading"} id="userInput" className="input input-bordered join-item min-w-[45vw] input-sm lg:input-md" dir="rtl" placeholder={ status || 'اكتب هنا'}
                         value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
                         onKeyDown={(e) => {
-                            if (e.key == 'Enter') {
+                            if (e.key === 'Enter') {
                                 setStatus('loading');
                                 sendUserInput();
                             }
                         }}
                     />
-                    <button disabled={status == "loading"} id="sendBtn" className="btn join-item rounded-r-full btn-sm lg:btn-md"
+                    <button disabled={status === "loading"} id="sendBtn" className="btn join-item rounded-r-full btn-sm lg:btn-md"
                         onClick={() => {
                             setStatus('loading');
                             sendUserInput();
