@@ -3,11 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  BrowserRouter,
+  Route,
+  Router,
+  Routes,
+} from "react-router-dom";
+import Home from './Home';
+import CsInfo from './CsInfo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter basename='CIS_44_Majors'>
+      <App>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cs" element={<CsInfo />} />
+        </Routes>
+      </App>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
