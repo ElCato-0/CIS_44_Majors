@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/CIS_44_Majors/static/css/main.8166ff1a.css",
-    "main.js": "/CIS_44_Majors/static/js/main.e9ce58f5.js",
+    "main.css": "/CIS_44_Majors/static/css/main.ddcf2608.css",
+    "main.js": "/CIS_44_Majors/static/js/main.39effa13.js",
     "static/js/787.c1112931.chunk.js": "/CIS_44_Majors/static/js/787.c1112931.chunk.js",
     "static/media/sec.jpg": "/CIS_44_Majors/static/media/sec.89116393a20b4f54a9c8.jpg",
     "static/media/hci.jpg": "/CIS_44_Majors/static/media/hci.d5939bbcd06951d1915a.jpg",
@@ -11,12 +11,12 @@
     "static/media/se.jpg": "/CIS_44_Majors/static/media/se.9144ad64b5f46405f4c4.jpg",
     "static/media/ds.jpg": "/CIS_44_Majors/static/media/ds.0f5fd31c8f03f882e2ad.jpg",
     "index.html": "/CIS_44_Majors/index.html",
-    "main.8166ff1a.css.map": "/CIS_44_Majors/static/css/main.8166ff1a.css.map",
-    "main.e9ce58f5.js.map": "/CIS_44_Majors/static/js/main.e9ce58f5.js.map",
+    "main.ddcf2608.css.map": "/CIS_44_Majors/static/css/main.ddcf2608.css.map",
+    "main.39effa13.js.map": "/CIS_44_Majors/static/js/main.39effa13.js.map",
     "787.c1112931.chunk.js.map": "/CIS_44_Majors/static/js/787.c1112931.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8166ff1a.css",
-    "static/js/main.e9ce58f5.js"
+    "static/css/main.ddcf2608.css",
+    "static/js/main.39effa13.js"
   ]
 }
